@@ -1,4 +1,4 @@
-name: Deploy Master to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -29,9 +29,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: vdv-docs-public
+      name: vdv-docs-master
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2.0.4
