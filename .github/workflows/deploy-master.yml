@@ -1,8 +1,8 @@
-name: Deploy PR Preview to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  push:
+    branches: [master]
 
   workflow_dispatch:
 
@@ -29,12 +29,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: vdv-docs-preview
+      name: vdv-docs-master
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2.0.4
-        with:
-          artifact_name: preview
-
