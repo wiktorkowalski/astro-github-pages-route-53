@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: vdv-docs-master
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: preview-vdv-docs-master.wiktorkowalski.github.io
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
