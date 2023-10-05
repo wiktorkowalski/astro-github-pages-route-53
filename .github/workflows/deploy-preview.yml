@@ -32,8 +32,10 @@ jobs:
       name: vdv-docs-preview
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy PR Preview to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          preview: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: wiktorkowalski.github.io
